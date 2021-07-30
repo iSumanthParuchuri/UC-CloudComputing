@@ -1,0 +1,283 @@
+data_2010 = "/data/weather/2010/"
+maindata_2010 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2010)
+name_list = maindata_2010.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2010.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp10')
+newData_2010 = spark.read.csv("/user/paruchsh/"+'temp10',header=False,sep=' ')
+cleanData_2010 = newData_2010.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2010 = cleanData_2010.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2010.createOrReplaceTempView("dataTable_2010")
+***************************************************************************************************************************************************************
+data_2011 = "/data/weather/2011/"
+maindata_2011 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2011)
+name_list = maindata_2011.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2011.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp11')
+newData_2011 = spark.read.csv("/user/paruchsh/"+'temp11',header=False,sep=' ')
+cleanData_2011 = newData_2011.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2011 = cleanData_2011.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2011.createOrReplaceTempView("dataTable_2011")
+***************************************************************************************************************************************************************
+data_2012 = "/data/weather/2012/"
+maindata_2012 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2012)
+name_list = maindata_2012.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2012.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp12')
+newData_2012 = spark.read.csv("/user/paruchsh/"+'temp12',header=False,sep=' ')
+cleanData_2012 = newData_2012.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2012 = cleanData_2012.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2012.createOrReplaceTempView("dataTable_2012")
+***************************************************************************************************************************************************************
+data_2013 = "/data/weather/2013/"
+maindata_2013 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2013)
+name_list = maindata_2013.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2013.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp13')
+newData_2013 = spark.read.csv("/user/paruchsh/"+'temp13',header=False,sep=' ')
+cleanData_2013 = newData_2013.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2013 = cleanData_2013.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2013.createOrReplaceTempView("dataTable_2013")
+***************************************************************************************************************************************************************
+data_2014 = "/data/weather/2014/"
+maindata_2014 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2014)
+name_list = maindata_2014.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2014.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp14')
+newData_2014 = spark.read.csv("/user/paruchsh/"+'temp14',header=False,sep=' ')
+cleanData_2014 = newData_2014.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2014 = cleanData_2014.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2014.createOrReplaceTempView("dataTable_2014")
+***************************************************************************************************************************************************************
+data_2015 = "/data/weather/2015/"
+maindata_2015 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2015)
+name_list = maindata_2015.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2015.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp15')
+newData_2015 = spark.read.csv("/user/paruchsh/"+'temp15',header=False,sep=' ')
+cleanData_2015 = newData_2015.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2015 = cleanData_2015.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2015.createOrReplaceTempView("dataTable_2015")
+***************************************************************************************************************************************************************
+data_2016 = "/data/weather/2016/"
+maindata_2016 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2016)
+name_list = maindata_2016.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2016.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp16')
+newData_2016 = spark.read.csv("/user/paruchsh/"+'temp16',header=False,sep=' ')
+cleanData_2016 = newData_2016.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2016 = cleanData_2016.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2016.createOrReplaceTempView("dataTable_2016")
+***************************************************************************************************************************************************************
+data_2017 = "/data/weather/2017/"
+maindata_2017 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2017)
+name_list = maindata_2017.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2017.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp17')
+newData_2017 = spark.read.csv("/user/paruchsh/"+'temp17',header=False,sep=' ')
+cleanData_2017 = newData_2017.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2017 = cleanData_2017.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2017.createOrReplaceTempView("dataTable_2017")
+***************************************************************************************************************************************************************
+data_2018 = "/data/weather/2018/"
+maindata_2018 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2018)
+name_list = maindata_2018.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2018.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp18')
+newData_2018 = spark.read.csv("/user/paruchsh/"+'temp18',header=False,sep=' ')
+cleanData_2018 = newData_2018.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2018 = cleanData_2018.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2018.createOrReplaceTempView("dataTable_2018")
+***************************************************************************************************************************************************************
+data_2019 = "/data/weather/2019/"
+maindata_2019 = spark.read.format("csv").option("header", "true").option("delimiter","\t").load(data_2019)
+name_list = maindata_2019.schema.names
+name_list = str(name_list).strip("['']").split(' ')
+names = []
+for item in name_list:
+    if len(item)>0:
+        names.append(item)
+
+rdd1 = maindata_2019.rdd
+rdd2 = rdd1.map(lambda x: str(x).split('=')[1])
+rdd3 = rdd2.map(lambda x: ' '.join(x.split()))
+rdd4 = rdd3.map(lambda x: x[2:-2])
+rdd4.saveAsTextFile("/user/paruchsh/"+'temp19')
+newData_2019 = spark.read.csv("/user/paruchsh/"+'temp19',header=False,sep=' ')
+cleanData_2019 = newData_2019.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanData_2019 = cleanData_2019.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanData_2019.createOrReplaceTempView("dataTable_2019")
+***************************************************************************************************************************************************************
+Clean Data steps for Combining all years data.
+newData_2010 = spark.read.csv("/user/paruchsh/"+'temp10',header=False,sep=' ')
+newData_2011 = spark.read.csv("/user/paruchsh/"+'temp11',header=False,sep=' ')
+newData_2012 = spark.read.csv("/user/paruchsh/"+'temp12',header=False,sep=' ')
+newData_2013 = spark.read.csv("/user/paruchsh/"+'temp13',header=False,sep=' ')
+newData_2014 = spark.read.csv("/user/paruchsh/"+'temp14',header=False,sep=' ')
+newData_2015 = spark.read.csv("/user/paruchsh/"+'temp15',header=False,sep=' ')
+newData_2016 = spark.read.csv("/user/paruchsh/"+'temp16',header=False,sep=' ')
+newData_2017 = spark.read.csv("/user/paruchsh/"+'temp17',header=False,sep=' ')
+newData_2018 = spark.read.csv("/user/paruchsh/"+'temp18',header=False,sep=' ')
+newData_2019 = spark.read.csv("/user/paruchsh/"+'temp19',header=False,sep=' ')
+newDataUnion = newData_2010.union(newData_2011).union(newData_2012).union(newData_2013).union(newData_2014).union(newData_2015).union(newData_2016).union(newData_2017).union(newData_2018).union(newData_2019)
+cleanDataUnion = newDataUnion.drop('_c1','_c4','_c6','_c8','_c10','_c12','_c14')
+cleanDataUnion = cleanDataUnion.withColumnRenamed('_c0','STN').withColumnRenamed('_c2','YEARMODA')\
+                    .withColumnRenamed('_c3','TEMP').withColumnRenamed('_c5','DEWP')\
+                    .withColumnRenamed('_c7','SLP').withColumnRenamed('_c9','STP')\
+                    .withColumnRenamed('_c11','VISIB').withColumnRenamed('_c13','WDSP')\
+                    .withColumnRenamed('_c15','MXSPD').withColumnRenamed('_c16','GUST')\
+                    .withColumnRenamed('_c17','MAX').withColumnRenamed('_c18','MIN')\
+                    .withColumnRenamed('_c19','PRCP').withColumnRenamed('_c20','SNDP')\
+                    .withColumnRenamed('_c21','FRSHTT')
+cleanDataUnion.createOrReplaceTempView("dataTable_all")
+***************************************************************************************************************************************************************

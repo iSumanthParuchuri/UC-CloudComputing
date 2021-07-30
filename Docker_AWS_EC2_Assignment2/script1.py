@@ -1,4 +1,5 @@
 import os
+import socket
 from tabulate import tabulate
 x = os.listdir("./home/data/")
 l=[]
@@ -46,6 +47,12 @@ for i in maxif:
     file1.write("{:<50} {:<25}".format(i,maxi))
     file1.write("\n")
 file1.write('--------------------------------------------------------------------------')
+file1.write("\n")
+host_name = socket.gethostname()
+host_ip = socket.gethostbyname(host_name)
+file1.write("Hostname :  "+str(host_name))
+file1.write("\n")
+file1.write("IP address: "+str(host_ip))
 file1.write("\n")
 file1.close()
 f = open("./home/output/result.txt", "r")
